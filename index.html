@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ᏂᏋᏗᎴᏕᎮᏗፈᏋ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(157, 78, 221, 0.4), 0 0 40px rgba(58, 134, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(157, 78, 221, 0.6), 0 0 60px rgba(58, 134, 255, 0.3);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #2d2d2d;
+            background: linear-gradient(135deg, #FEFBFF 0%, #C7A5E9 25%, #9EC5E3 75%, #F6C1FA 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(224, 170, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(58, 134, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, #A268FC 0%, #9B00FF 50%, #6601FF 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(162, 104, 252, 0.25);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #F6C1FA, #00FFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #F6C1FA;
+            text-shadow: 0 0 10px rgba(246, 193, 250, 0.5);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            background: linear-gradient(135deg, #A268FC, #0200FD, #F6C1FA, #6601FF);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(162, 104, 252, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #5a5a5a;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.1rem 2.5rem;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #A268FC, #CB01FF);
+            color: white;
+            box-shadow: 0 4px 20px rgba(162, 104, 252, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(162, 104, 252, 0.5);
+            animation: glow 2s ease-in-out;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #0200FD, #00FFFF);
+            color: white;
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.35);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 255, 255, 0.5);
+        }
+
+        .about {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            box-shadow: 0 8px 32px rgba(162, 104, 252, 0.15);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #5a189a;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            background: linear-gradient(135deg, #A268FC, #0200FD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: #A268FC;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.9;
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+
+        .media-placeholder {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #F6C1FA, #C7A5E9, #9EC5E3);
+            border-radius: 20px;
+            display: flex;
+            color: #A268FC;
+            font-size: 1.1rem;
+            border: 3px dashed rgba(162, 104, 252, 0.4);
+            box-shadow: 0 12px 40px rgba(162, 104, 252, 0.25), inset 0 0 30px rgba(255, 255, 255, 0.5);
+            animation: float 3s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .media-placeholder video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            display: block;
+        }
+
+        .features {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(245, 230, 255, 0.5) 0%, rgba(240, 230, 255, 0.5) 100%);
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(162, 104, 252, 0.15);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(162, 104, 252, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(162, 104, 252, 0.1), rgba(0, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(162, 104, 252, 0.25);
+            border-color: #A268FC;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #A268FC, #6601FF);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(162, 104, 252, 0.3);
+        }
+
+        .feature-card h3 {
+            color: #A268FC;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #777;
+            line-height: 1.7;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .community {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 5rem 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .community-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(162, 104, 252, 0.08), rgba(0, 255, 255, 0.08));
+            border-radius: 20px;
+            border: 2px solid rgba(162, 104, 252, 0.25);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 24px rgba(162, 104, 252, 0.12);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(162, 104, 252, 0.2);
+            border-color: #A268FC;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #A268FC, #0200FD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: #555;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .staff {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5rem 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            margin: 4rem 2rem;
+            box-shadow: 0 8px 32px rgba(162, 104, 252, 0.15);
+        }
+
+        .staff-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .staff-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #9d4edd rgba(157, 78, 221, 0.1);
+        }
+
+        .staff-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .staff-carousel::-webkit-scrollbar-track {
+            background: rgba(157, 78, 221, 0.1);
+            border-radius: 10px;
+        }
+
+        .staff-carousel::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #A268FC, #0200FD);
+            border-radius: 10px;
+        }
+
+        .staff-carousel::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #CB01FF, #00FFFF);
+        }
+
+        .staff-member {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(162, 104, 252, 0.15);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(162, 104, 252, 0.2);
+        }
+
+        .staff-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 48px rgba(162, 104, 252, 0.25);
+            border-color: #A268FC;
+        }
+
+        .staff-avatar-container {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #F6C1FA, #C7A5E9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .staff-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .staff-avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #A268FC, #0200FD);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            object-fit: cover;
+        }
+
+        .staff-info {
+            padding: 1.8rem;
+        }
+
+        .staff-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #A268FC;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .staff-role {
+            font-size: 0.95rem;
+            color: #6601FF;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .staff-description {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .events {
+            background: linear-gradient(135deg, rgba(245, 230, 255, 0.6) 0%, rgba(240, 230, 255, 0.6) 100%);
+            padding: 5rem 2rem;
+        }
+
+        .events-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .events-list {
+            margin-top: 3rem;
+        }
+
+        .event-item {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .event-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(0, 255, 255, 0.25);
+            border-color: #00FFFF;
+        }
+
+        .event-date {
+            background: linear-gradient(135deg, #0200FD, #CB01FF);
+            color: white;
+            padding: 1.3rem;
+            border-radius: 15px;
+            min-width: 100px;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .event-details h4 {
+            color: #A268FC;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .event-details p {
+            color: #777;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #A268FC 0%, #0200FD 50%, #CB01FF 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(246, 193, 250, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 2px solid rgba(162, 104, 252, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #F6C1FA;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(246, 193, 250, 0.5);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            color: #c8b6ff;
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 4rem 2rem;
+                min-height: auto;
+            }
+
+            nav ul {
+                gap: 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .event-item {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                margin-left: 1rem;
+                margin-right: 1rem;
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">𝖍𝖊𝖆𝖉𝖘𝖕𝖆𝖈𝖊</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">⚘⡱ sobre el servidor</a></li>
+                    <li><a href="#features">⚘⡱ características</a></li>
+                    <li><a href="#staff">⚘⡱ staff</a></li>
+                    <li><a href="#join">⚘⡱ únete</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>♩ೀ⋆｡˚ welcome to the 𝖍𝖊𝖆𝖉𝖘𝖕𝖆𝖈𝖊 ♩ೀ⋆｡˚</h1>
+        <p>headspace es una comunidad de Discord y team dirigido a fans de OMORI, un juego de terror psicológico, hispanohablantes y que tengan de 13 a 21 años.</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="window.open('https://discord.gg/4Dt9m6sQdy', '_blank')">> únete</button>
+            <button class="btn btn-secondary" onclick="window.location.href='#about'">> saber más</button>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">♩ೀ⋆｡˚ sobre nosotros ♩ೀ⋆｡˚</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>၄⋆၃ activos y acogedores</h2>
+                    <p>contamos con más de 300 miembros (cantidad que, por cierto, sube lenta pero activamente). aunque esta cantidad no sea la gran cosa, somos extraordinariamente activos.</p>
+                    <p>tenemos muchos canales y bots multifuncionales, para exprimir al máximo el potencial del servidor.</p>
+                    <p>incluímos canales dedicados a preguntas diarias, diversas actividades e incluso 2 servidores de minecraft para nuestra comunidad.</p>
+                </div>
+                <div class="media-placeholder">
+                    <img src="1.png"></img>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-content">
+            <h2 class="section-title">♩ೀ⋆｡˚ ¿por qué unirse? ♩ೀ⋆｡˚</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>၄⋆၃ canales</h3>
+                    <p>accede a canales dedicados a varios temas específicos y accede a nuestros servidores de minecraft.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>၄⋆၃ actividad</h3>
+                    <p>casi siempre hay actividad en el servidor, sea gente hablando en el canal de chat (sea de voz o de texto), nuevas obras de arte compartidas entre miembros o usuarios en alguno de los servidores de minecraft.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♥️</div>
+                    <h3>၄⋆၃ miembros</h3>
+                    <p>nuestros miembros son respetuosos y amigables. ¡es muy posible que encuentres a alguien que comparta tus intereses (aparte del interés común, OMORI)!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>၄⋆၃ moderación</h3>
+                    <p>siempre habrá un moderador que garantiza un ambiente seguro y respetuoso. también, si no te gusta algo, puedes usar el sistema de tickets para reportarlo.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>၄⋆၃ staff</h3>
+                    <p>aparte del equipo de moderación, tenemos varios staffs que responden dudas y gestionan diversos aspectos del servidor.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>၄⋆၃ eventos</h3>
+                    <p>se suelen realizar varios eventos de vez en cuando, y, también, existe la posibilidad de que nuestros usuarios mismos los organicen de varias maneras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="staff" id="staff">
+        <div class="staff-content">
+            <h2 class="section-title">♩ೀ⋆｡˚ conoce nuestro staff ♩ೀ⋆｡˚</h2>
+            <p align="center">(nota: la foto asignada en esta sección es el personaje que elige el staff al entrar. también, solo se muestra al staff más activo.)</p>
+            <div class="staff-carousel">
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/leem.webp" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ leem</div>
+                        <div class="staff-role">𝜗℘ owner</div>
+                        <div class="staff-description">la propietaria del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/vic.jpg" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ victor/coddy</div>
+                        <div class="staff-role">𝜗℘ co-owner</div>
+                        <div class="staff-description">similar a leem, es el co-propietario del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/connie.png" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ connie</div>
+                        <div class="staff-role">𝜗℘ co-owner</div>
+                        <div class="staff-description">similar a leem, es la co-propietaria del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/kix.jpg" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ electa/hortensia</div>
+                        <div class="staff-role">𝜗℘ moderadora</div>
+                        <div class="staff-description">una de las moderadoras del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/nell.jpg" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ nell</div>
+                        <div class="staff-role">𝜗℘ moderadora y ayudante</div>
+                        <div class="staff-description">ayuda a moderar y decorar el servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/ale.webp" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ ale</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/alaric.gif" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ alaric</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/jooak.png" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ jooak</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/mati.png" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ mati</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/balon.webp" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ balón</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/tommy.webp" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ tommy</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/tahi.webp" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ tahi</div>
+                        <div class="staff-role">𝜗℘ staff</div>
+                        <div class="staff-description">un miembro del staff del servidor.</div>
+                    </div>
+                </div>
+
+                <div class="staff-member">
+                    <div class="staff-avatar-container">
+                        <div class="staff-avatar-placeholder"><img src="staffs/galz.jpg" class="staff-avatar"></div>
+                    </div>
+                    <div class="staff-info">
+                        <div class="staff-name">✲ galz</div>
+                        <div class="staff-role">𝜗℘ staff y ayudante</div>
+                        <div class="staff-description">miembro del staff que, a su vez, gestiona los servidores de minecraft, esta página web y, por ello, la cuenta de github del servidor.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="join">
+        <div class="cta-content">
+            <h2>♩ೀ⋆｡˚ ¿te ha convencido? ♩ೀ⋆｡˚</h2>
+            <p>únete con el botón de abajo y empieza a formar parte de nuestra comunidad.</p>
+            <button class="btn btn-primary" onclick="window.open('https://discord.gg/4Dt9m6sQdy', '_blank')">> 𝓸𝓹𝓮𝓷 𝓽𝓱𝓮 𝓭𝓸𝓸𝓻</button>
+        </div>
+        <div class="cta-content" style="margin-top: 4rem;">
+            <p>esta página ha sido hecha por galzstuff, quien, como se menciona anteriormente en la página, gestiona los servidores de minecraft y la cuenta de github del servidor.</p>
+            <button class="btn btn-secondary" onclick="window.open('https://galzstuff.github.io', '_blank')">> revisa sus proyectos y redes sociales (empezando por su página web) aquí</button>
+        </div>
+    </section>
+</html>
